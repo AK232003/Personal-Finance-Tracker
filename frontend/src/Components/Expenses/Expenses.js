@@ -1,47 +1,62 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from '../../styles/Layouts';
 import Form from '../Form/Form';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from './ExpenseForm';
+import Orb from '../Orb/Orb';
+import bg from '../../img/bg.png'
+import {MainLayout} from '../../styles/Layouts'
+import Navigation from '../Navigation/Navigation';
 
 function Expenses() {
     const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
-
+    const [active, setActive] = useState(4)
+    const orbMemo = useMemo(() => {
+        return <Orb />
+      },[])
     useEffect(() =>{
         getExpenses()
     }, [])
     return (
-        <ExpenseStyled>
-            <InnerLayout>
-                <h1>Expenses</h1>
-                <h2 className="total-income">Total Expense: <span>${totalExpenses()}</span></h2>
-                <div className="income-content">
-                    <div className="form-container">
-                        <ExpenseForm />
+        <AppStyled bg={bg} className="App">
+        {orbMemo}
+        <MainLayout>
+          <Navigation active={active} setActive={setActive} />
+          <main>
+            <ExpenseStyled>
+                <InnerLayout>
+                    <h1>Expenses</h1>
+                    <h2 className="total-income">Total Expense: <span>${totalExpenses()}</span></h2>
+                    <div className="income-content">
+                        <div className="form-container">
+                            <ExpenseForm />
+                        </div>
+                        <div className="incomes">
+                            {expenses.map((income) => {
+                                const {_id, title, amount, date, category, description, type} = income;
+                                console.log(income)
+                                return <IncomeItem
+                                    key={_id}
+                                    id={_id} 
+                                    title={title} 
+                                    description={description} 
+                                    amount={amount} 
+                                    date={date} 
+                                    type={type}
+                                    category={category} 
+                                    indicatorColor="var(--color-green)"
+                                    deleteItem={deleteExpense}
+                                />
+                            })}
+                        </div>
                     </div>
-                    <div className="incomes">
-                        {expenses.map((income) => {
-                            const {_id, title, amount, date, category, description, type} = income;
-                            console.log(income)
-                            return <IncomeItem
-                                key={_id}
-                                id={_id} 
-                                title={title} 
-                                description={description} 
-                                amount={amount} 
-                                date={date} 
-                                type={type}
-                                category={category} 
-                                indicatorColor="var(--color-green)"
-                                deleteItem={deleteExpense}
-                            />
-                        })}
-                    </div>
-                </div>
-            </InnerLayout>
-        </ExpenseStyled>
+                </InnerLayout>
+            </ExpenseStyled>
+          </main>
+        </MainLayout>
+        </AppStyled> 
     )
 }
 
@@ -74,5 +89,23 @@ const ExpenseStyled = styled.div`
         }
     }
 `;
+
+const AppStyled = styled.div`
+  height: 100vh;
+  background-image: url(${props => props.bg});
+  position: relative;
+  main{
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
+`;
+
 
 export default Expenses

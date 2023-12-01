@@ -1,17 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from '../../styles/Layouts';
 import Form from '../Form/Form';
 import IncomeItem from '../IncomeItem/IncomeItem';
+import Orb from '../Orb/Orb';
+import bg from '../../img/bg.png'
+import {MainLayout} from '../../styles/Layouts'
+import Navigation from '../Navigation/Navigation';
 
 function Income() {
     const {addIncome,incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
-
+    const [active, setActive] = useState(3)
+    const orbMemo = useMemo(() => {
+        return <Orb />
+      },[])
     useEffect(() =>{
         getIncomes()
     }, [])
     return (
+        <AppStyled bg={bg} className="App">
+        {orbMemo}
+        <MainLayout>
+          <Navigation active={active} setActive={setActive} />
+          <main>
         <IncomeStyled>
             <InnerLayout>
                 <h1>Incomes</h1>
@@ -40,6 +52,9 @@ function Income() {
                 </div>
             </InnerLayout>
         </IncomeStyled>
+        </main>
+        </MainLayout>
+        </AppStyled> 
     )
 }
 
@@ -71,6 +86,23 @@ const IncomeStyled = styled.div`
             flex: 1;
         }
     }
+`;
+
+const AppStyled = styled.div`
+  height: 100vh;
+  background-image: url(${props => props.bg});
+  position: relative;
+  main{
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
 `;
 
 export default Income

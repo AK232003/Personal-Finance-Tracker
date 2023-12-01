@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const secret = "adeioosi2392n#n1i1n@8n8";
 const salt = bcrypt.genSaltSync(10);
-const index = require("../index");
+const index = require("../app");
 
 module.exports = {
 	login: async(req, res) => {
@@ -19,20 +19,20 @@ module.exports = {
 				username,
 				});
 			});
-			index.logger.info('Successful Login');
+			console.log('Successful Login');
 			} else {
-				index.logger.warn('Invalid credentials');
+				console.log.warn('Invalid credentials');
 				res.status(401).json({message: "invalid credentials"});
 			}
 		} catch (e) {
 			console.log(e);
 			res.status(400).json(e);
-			index.logger.error('Username doesn\'t exist');
+			console.log('Username doesn\'t exist');
 		}
 	},
 
 	logout: async(req, res) => {
-		index.logger.info('Successful Logout');
+		console.log('Successful Logout');
 		res.cookie("token", "").json("ok");
 	},
 
@@ -56,16 +56,16 @@ module.exports = {
 				// yearOfStudy: yearOfStudy,
 				// limit: limit,
 				});
-				index.logger.info('User created successfully');
+				console.log('User created successfully');
 				res.json({ requestData: { username, password } });
 			} catch (e) {
 				console.log(e);
-				index.logger.error('Unkown Error');
+				console.log('Unkown Error');
 				res.status(409).json(e);
 			}
 		}
 		else{
-			index.logger.warn('Create user aborted: Username already in use');
+			console.log('Create user aborted: Username already in use');
 			res.status(409).json({message: "username in use"});
 		}
 	}

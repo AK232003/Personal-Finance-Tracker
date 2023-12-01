@@ -11,6 +11,7 @@ import Income from './Components/Income/Income'
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
 import LoginPage from './Components/pages/loginpage';
+import History from './History/History';
 
 function App() {
   const [active, setActive] = useState(1)
@@ -18,56 +19,21 @@ function App() {
   const global = useGlobalContext()
   console.log(global);
 
-  const displayData = () => {
-    switch(active){
-      case 1:
-        return <Dashboard />
-      case 2:
-        return <Dashboard />
-      case 3:
-        return <Income />
-      case 4: 
-        return <Expenses />
-      default: 
-        return <Dashboard />
-    }
-  }
-
   const orbMemo = useMemo(() => {
     return <Orb />
   },[])
 
   return (
-    // <Router>
-    //         {window.location.href == "http://localhost:3001/dashboard" ? 
-    //         <AppStyled bg={bg} className="App">
-    //           {orbMemo}
-    //           <MainLayout>
-    //             <Navigation active={active} setActive={setActive} />
-    //             <main>
-    //               <Routes>
-    //                 <Route path="/dashboard" element={<Dashboard />} />
-    //               </Routes>
-    //             </main>
-    //           </MainLayout>
-    //         </AppStyled> 
-    //         :
-    //         <Routes>
-    //         <Route path="/" element={<RegisterPage />} />
-    //         <Route path="/login" element={<LoginPage />} />
-    //       </Routes>}
-    // </Router>
-    <AppStyled bg={bg} className="App">
-              {orbMemo}
-              <MainLayout>
-                <Navigation active={active} setActive={setActive} />
-                <main>
-                  <Routes>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                  </Routes>
-                </main>
-              </MainLayout>
-            </AppStyled> 
+    <Router>
+          <Routes>
+            <Route path="/" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/income' element={<Income />} />
+            <Route path='/expenses' element={<Expenses />} />
+            <Route path='/history' element={<History />} />
+          </Routes>
+    </Router>
 
   );
 }

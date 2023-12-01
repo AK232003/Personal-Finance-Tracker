@@ -12,21 +12,18 @@ function RegisterPage() {
 
   async function register(ev) {
     ev.preventDefault();
-    const response = await fetch("http://localhost:5000/register", {
+    const response = await fetch("http://localhost:5001/register", {
       method: "POST",
-      body: JSON.stringify({ username, password, name}),
+      body: JSON.stringify({username, password, name}),
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
-      alert("Registration successful! Please login");
+      console.log("Registered") 
+      console.log("Registration successful! Please login");
       setRedirect(true);
     } else {
       alert("Username in already in use.");
     }
-  }
-  if(redirect){
-    return <></>
-    // return <Navigate to= {"/login"} />
   }
   return (
     <div className="container">
@@ -51,12 +48,12 @@ function RegisterPage() {
                 <input type="password" className="form-control" id="password" placeholder="Enter your password" value = {password} onChange = {ev => setPassword(ev.target.value)}/>
               </div>
               <div className="d-grid gap-2">
-                <button type="submit" className="btn btn-primary">Register</button>
+                <button type="submit" className="btn btn-primary" onClick={register}>Register</button>
               </div>
             </form>
           </div>
           <div className="card-footer text-center">
-            <small>Don't have an account? <a href="#">Sign up here</a></small>
+            <small>Already have an account? <a href="/login">Click here</a></small>
           </div>
         </div>
       </div>

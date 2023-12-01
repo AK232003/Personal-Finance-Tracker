@@ -13,11 +13,11 @@ export default function LoginPage(){
     const {setUserInfo} = useContext(UserContext);
     async function login(ev){
         ev.preventDefault();
-        const resp = await fetch('http://localhost:3000/login', {
-            method : 'POST',
-            body : JSON.stringify({username, password}),
-            headers: {'Content-Type':'application/json'},
-            credentials: 'include',
+        const resp = await fetch('http://localhost:5001/login', {
+            method: "POST",
+            body: JSON.stringify({username, password}),
+            headers: { "Content-Type": "application/json" },
+            // credentials: 'include',
         });
         if(resp.ok){
             resp.json().then(userInfo =>{
@@ -50,12 +50,12 @@ export default function LoginPage(){
                 <input type="password" className="form-control" id="password" placeholder="Enter your password" value = {password} onChange = {ev => setPassword(ev.target.value)}/>
               </div>
               <div className="d-grid gap-2">
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary" onClick = {login}>Login</button>
               </div>
             </form>
           </div>
           <div className="card-footer text-center">
-            <small>Don't have an account? <a href="#">Sign up here</a></small>
+            <small>Don't have an account? <a href="/">Sign up here</a></small>
           </div>
         </div>
       </div>

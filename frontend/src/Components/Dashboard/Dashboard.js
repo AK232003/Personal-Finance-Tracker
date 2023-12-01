@@ -1,20 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../../History/History';
 import { InnerLayout } from '../../styles/Layouts';
 import { dollar } from '../../utils/Icons';
 import Chart from '../Chart/Chart';
+import Orb from '../Orb/Orb';
+import bg from '../../img/bg.png'
+import {MainLayout} from '../../styles/Layouts'
+import Navigation from '../Navigation/Navigation';
+
 
 function Dashboard() {
+    const [active, setActive] = useState(1)
     const {totalExpenses,incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
-
+    const orbMemo = useMemo(() => {
+        return <Orb />
+      },[])
     useEffect(() => {
         getIncomes()
         getExpenses()
     }, [])
 
     return (
+        <AppStyled bg={bg} className="App">
+        {orbMemo}
+        <MainLayout>
+          <Navigation active={active} setActive={setActive} />
+          <main>
         <DashboardStyled>
             <InnerLayout>
                 <h1>All Transactions</h1>
@@ -66,8 +79,29 @@ function Dashboard() {
                 </div>
             </InnerLayout>
         </DashboardStyled>
+
+        </main>
+              </MainLayout>
+            </AppStyled> 
     )
 }
+
+const AppStyled = styled.div`
+  height: 100vh;
+  background-image: url(${props => props.bg});
+  position: relative;
+  main{
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #FFFFFF;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
+`;
 
 const DashboardStyled = styled.div`
     .stats-con{
