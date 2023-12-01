@@ -12,6 +12,7 @@ import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
 import LoginPage from './Components/pages/loginpage';
 import History from './History/History';
+import TotalHistory from './TotalHistory/totalhistory';
 
 function App() {
   const [active, setActive] = useState(1)
@@ -31,7 +32,7 @@ function App() {
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/income' element={<Income />} />
             <Route path='/expenses' element={<Expenses />} />
-            <Route path='/history' element={<History />} />
+            <Route path='/history' element={<TotalHistory />} />
           </Routes>
     </Router>
 
