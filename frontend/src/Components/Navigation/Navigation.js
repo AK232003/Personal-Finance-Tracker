@@ -4,16 +4,19 @@ import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 import { Link } from 'react-router-dom'
+import { useGlobalContext } from '../../context/globalContext'
 
 function Navigation({active, setActive}) {
-    
+    const {totalBalance} = useGlobalContext()
+    const balance = totalBalance()
+
     return (
         <NavStyled>
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Mike</h2>
-                    <p>Your Money</p>
+                    <h2>Arya</h2>
+                    <span>${balance}</span>
                 </div>
             </div>
             <ul className="menu-items">
@@ -30,7 +33,7 @@ function Navigation({active, setActive}) {
             </ul>
             <div className="bottom-nav">
                 <li>
-                    {signout} Sign Out
+                    {signout} <a href="/">Sign Out</a>
                 </li>
             </div>
         </NavStyled>

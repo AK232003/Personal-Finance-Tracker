@@ -22,7 +22,7 @@ function TotalHistory() {
           <Navigation active={active} setActive={setActive} />
           <main>
         <HistoryStyled>
-            <h2>Recent History</h2>
+            <h2>Transaction History</h2>
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
                 return (
