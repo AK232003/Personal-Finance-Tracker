@@ -1,8 +1,7 @@
 import { useState } from "react";
-import './css/registerpage.css'
 import RegisterImage1 from '../images/RegisterImage1.svg'
 import logo from '../images/Logo.jpg'
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
@@ -24,7 +23,7 @@ function RegisterPage() {
 
   async function register(ev) {
     ev.preventDefault();
-    const response = await fetch("http://localhost:3000/register", {
+    const response = await fetch("http://localhost:5000/register", {
       method: "POST",
       body: JSON.stringify({ username, password, name, limit}),
       headers: { "Content-Type": "application/json" },
@@ -37,81 +36,59 @@ function RegisterPage() {
     }
   }
   if(redirect){
-    return <Navigate to= {"/login"} />
+    return <></>
+    // return <Navigate to= {"/login"} />
   }
   return (
-    <div className="total">
-      <div className="left-part">
-        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto voluptatum ratione natus consequatur necessitatibus fugit quae ea eveniet rem molestiae? Accusamus officia hic, sed alias excepturi incidunt? Quidem, voluptatum? Voluptate? Lorem ipsum, dolor sit amet consectetur</h4>
-        <img src={RegisterImage1} alt="Pay" className='loginImage1'/>
-        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto voluptatum ratione natus consequatur necessitatibus fugit quae ea eveniet rem molestiae? Accusamus officia hic, sed alias excepturi incidunt? Quidem, voluptatum? Voluptate?</h4>
-      </div>
+    <div class="card d-flex justify-content-center align-items-center m-5" style={{width: "600px"}}>
+      <h1> Register</h1>
+<form >
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example1">Email address</label>
+    <input type="email" id="form2Example1" class="form-control" />
+  </div>
 
-      <div className="right-part">
-        <br /><br />
-        <div className="ms-5">
-          <Link to="/" className="title"><img src={logo} alt="Pay" className='logo'/><span className="logo-name"> FinMate</span></Link>
-        </div>
-        <br /><br /><br />
+  <div class="form-outline mb-4">
+    <label class="form-label" for="form2Example2">Password</label>
+    <input type="password" id="form2Example2" class="form-control" />
+  </div>
 
-        <h4 className='text-center'>Sign Up</h4>
-        <form className="register mx-auto p-4 SignUpForm" onSubmit={register}>
-          <div className="form-part">
-            <label>Name</label>
-            <input  type="text" className="form-control"
-              value={name}
-              onChange={(ev) => setName(ev.target.value)}
-            />
-          </div>
-
-          {/* <div className="form-part">
-            <label>College</label>
-            <input type="text" className="form-control"
-              value={college}
-              onChange={(ev) => setCollege(ev.target.value)}
-            />
-          </div> */}
-
-          <div className="form-part">
-            <label>Username</label>
-            <input type="text" className="form-control"
-              value={username}
-              onChange={(ev) => setUsername(ev.target.value)}
-            />
-          </div>
-
-          <div className="form-part">
-            <label>Password</label>
-            <input type="password" className="form-control"
-              value={password}
-              onChange={(ev) => setPassword(ev.target.value)}
-            />
-          </div>
-
-          {/* <div className="form-part">
-            <label>Choose an year of study </label>
-            <select value={year} onChange={(e) => setYear(e.target.value)} className="form-select">
-              {years.map((value) => (
-                <option value={value} key={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div> */}
-      
-          {/* <div className="form-part">
-            <label>Set a monthly expenditure limit </label>
-            <input type="number" className="form-control" placeholder="5000"
-              value={limit}
-              onChange={(ev) => setLimit(ev.target.value)}
-            />
-          </div> */}
-
-          <button className="login-button"> Register </button>
-          <Link className="signup-link" to="/login"><span className="text-dark">Already a user?</span> Log in</Link>
-        </form>
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+        <label class="form-check-label" for="form2Example31"> Remember me </label>
       </div>
     </div>
+
+    <div class="col">
+      <a href="#!">Forgot password?</a>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+  <div class="text-center">
+    <p>Not a member? <a href="#!">Register</a></p>
+    <p>or sign up with:</p>
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button> 
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-github"></i>
+    </button>
+  </div>
+</form>
+</div>
   );
 }
 

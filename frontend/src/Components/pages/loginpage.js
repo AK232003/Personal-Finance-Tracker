@@ -4,7 +4,7 @@ import {UserContext} from '../../context/UserContext';
 import LoginImage1 from '../images/LoginImage1.svg'
 import logo from '../images/Logo.jpg'
 import { Link } from "react-router-dom";
-import '../pages/css/loginpage.css'
+// import '../pages/css/loginpage.css'
 
 export default function LoginPage(){
     const [username, setUsername] = useState('');

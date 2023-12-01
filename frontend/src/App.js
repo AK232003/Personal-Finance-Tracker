@@ -1,4 +1,5 @@
 import React, {useState, useMemo} from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import bg from './img/bg.png'
 import {MainLayout} from './styles/Layouts'
@@ -37,15 +38,25 @@ function App() {
   },[])
 
   return (
-    <AppStyled bg={bg} className="App">
-      {orbMemo}
-      <MainLayout>
-        <Navigation active={active} setActive={setActive} />
-        <main>
-          {displayData()}
-        </main>
-      </MainLayout>
-    </AppStyled>
+    <Router>
+            {window.location.href != "http://localhost:3001/" ? 
+            <AppStyled bg={bg} className="App">
+              {orbMemo}
+              <MainLayout>
+                <Navigation active={active} setActive={setActive} />
+                <main>
+                  <Routes>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                  </Routes>
+                </main>
+              </MainLayout>
+            </AppStyled> 
+            :
+            <Routes>
+            <Route path="/" element={<RegisterPage />} />
+          </Routes>}
+    </Router>
+
   );
 }
 
