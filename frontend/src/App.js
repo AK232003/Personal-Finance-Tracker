@@ -5,9 +5,11 @@ import {MainLayout} from './styles/Layouts'
 import Orb from './Components/Orb/Orb'
 import Navigation from './Components/Navigation/Navigation'
 import Dashboard from './Components/Dashboard/Dashboard';
+import RegisterPage from './Components/pages/registerpage';
 import Income from './Components/Income/Income'
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
+import LoginPage from './Components/pages/loginpage';
 
 function App() {
   const [active, setActive] = useState(1)
