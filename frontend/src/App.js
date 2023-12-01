@@ -38,9 +38,26 @@ function App() {
   },[])
 
   return (
-    <Router>
-            {window.location.href != "http://localhost:3001/" ? 
-            <AppStyled bg={bg} className="App">
+    // <Router>
+    //         {window.location.href == "http://localhost:3001/dashboard" ? 
+    //         <AppStyled bg={bg} className="App">
+    //           {orbMemo}
+    //           <MainLayout>
+    //             <Navigation active={active} setActive={setActive} />
+    //             <main>
+    //               <Routes>
+    //                 <Route path="/dashboard" element={<Dashboard />} />
+    //               </Routes>
+    //             </main>
+    //           </MainLayout>
+    //         </AppStyled> 
+    //         :
+    //         <Routes>
+    //         <Route path="/" element={<RegisterPage />} />
+    //         <Route path="/login" element={<LoginPage />} />
+    //       </Routes>}
+    // </Router>
+    <AppStyled bg={bg} className="App">
               {orbMemo}
               <MainLayout>
                 <Navigation active={active} setActive={setActive} />
@@ -51,11 +68,6 @@ function App() {
                 </main>
               </MainLayout>
             </AppStyled> 
-            :
-            <Routes>
-            <Route path="/" element={<RegisterPage />} />
-          </Routes>}
-    </Router>
 
   );
 }

@@ -29,46 +29,38 @@ export default function LoginPage(){
         }
     }
     if(redirect){
-        return <Navigate to= {"/"} replace={true} />
+        return <Navigate to= {"/dashboard"} replace={true} />
     }
     return (
-        <div className="total">
-            <div className="left-part">
-                <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto voluptatum ratione natus consequatur necessitatibus fugit quae ea eveniet rem molestiae? Accusamus officia hic, sed alias excepturi incidunt? Quidem, voluptatum? Voluptate? Lorem ipsum, dolor sit amet consectetur</h4>
-                <img src={LoginImage1} alt="Pay" className='loginImage1'/>
-                <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto voluptatum ratione natus consequatur necessitatibus fugit quae ea eveniet rem molestiae? Accusamus officia hic, sed alias excepturi incidunt? Quidem, voluptatum? Voluptate?</h4>
-            </div>
-            <div className="right-part">
-                <br /><br />
-                <div className="ms-5">
-                    <Link to="/" className="title"><img src={logo} alt="Pay" className='logo'/><span className="logo-name"> FinMate</span></Link>
-                </div>
-                <br /><br /><br />
-                <form onSubmit = {login} className="p-4 loginForm">
-                    <h4 className='pb-4 text-center'>Login</h4><br />
-                    <div className="mb-3">
-                            <label>Username</label>
-                            <input type="text" className="form-control"
-                            value={username}
-                            onChange = {ev => setUsername(ev.target.value)}
-                        />
-                        </div>
-                        <div className="mb-3">
-                            <label>Password</label>
-                            <input type="password" className="form-control"
-                            value={password}
-                            onChange = {ev=> setPassword(ev.target.value)}
-                        />
-                        </div>
-                        <div>
-                            <br />
-                            <button className="login-button"> Login </button>
-                        </div>
-                    <Link className="signup-link" to="/register"><span className="text-dark">Don't have an account?</span> Sign Up</Link>
-                </form>
-
-            </div>
-
+       <div className="container">
+    <div className="row justify-content-center mt-5">
+      <div className="col-md-6">
+        <div className="card border-0 shadow-lg">
+          <div className="card-header bg-primary text-white text-center">
+            <h3>Login</h3>
+          </div>
+          <div className="card-body">
+            <form>
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label">Email</label>
+                <input type="text" className="form-control" id="email" placeholder="Enter your email" value = {username} onChange = {ev => setUsername(ev.target.value)}/>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Password</label>
+                <input type="password" className="form-control" id="password" placeholder="Enter your password" value = {password} onChange = {ev => setPassword(ev.target.value)}/>
+              </div>
+              <div className="d-grid gap-2">
+                <button type="submit" className="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+          <div className="card-footer text-center">
+            <small>Don't have an account? <a href="#">Sign up here</a></small>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
     );
 }

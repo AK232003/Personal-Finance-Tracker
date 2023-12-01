@@ -7,17 +7,6 @@ function RegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  // const [college, setCollege] = useState("");
-  const [limit, setLimit] = useState(0)
-  const years = [
-    "B.Tech - First",
-    "B.Tech - Second",
-    "B.Tech - Third",
-    "B.Tech - Fourth",
-    "IDD - Fifth",
-    "M.Tech",
-    "PhD",
-  ];
   // const [year, setYear] = useState(years[0]);
   const [redirect, setRedirect] = useState(false);
 
@@ -25,7 +14,7 @@ function RegisterPage() {
     ev.preventDefault();
     const response = await fetch("http://localhost:5000/register", {
       method: "POST",
-      body: JSON.stringify({ username, password, name, limit}),
+      body: JSON.stringify({ username, password, name}),
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
@@ -40,55 +29,40 @@ function RegisterPage() {
     // return <Navigate to= {"/login"} />
   }
   return (
-    <div class="card d-flex justify-content-center align-items-center m-5" style={{width: "600px"}}>
-      <h1> Register</h1>
-<form >
-  <div class="form-outline mb-4">
-    <label class="form-label" for="form2Example1">Email address</label>
-    <input type="email" id="form2Example1" class="form-control" />
-  </div>
-
-  <div class="form-outline mb-4">
-    <label class="form-label" for="form2Example2">Password</label>
-    <input type="password" id="form2Example2" class="form-control" />
-  </div>
-
-  <div class="row mb-4">
-    <div class="col d-flex justify-content-center">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-        <label class="form-check-label" for="form2Example31"> Remember me </label>
+    <div className="container">
+    <div className="row justify-content-center mt-5">
+      <div className="col-md-6">
+        <div className="card border-0 shadow-lg">
+          <div className="card-header bg-primary text-white text-center">
+            <h3>Register</h3>
+          </div>
+          <div className="card-body">
+            <form>
+              <div className="mb-3">
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label">Name</label>
+                <input type="text" className="form-control" id="name" placeholder="Enter your name" value = {name} onChange = {ev => setName(ev.target.value)}/>
+              </div>
+                <label htmlFor="username" className="form-label">Email</label>
+                <input type="text" className="form-control" id="email" placeholder="Enter your email" value = {username} onChange = {ev => setUsername(ev.target.value)}/>
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Password</label>
+                <input type="password" className="form-control" id="password" placeholder="Enter your password" value = {password} onChange = {ev => setPassword(ev.target.value)}/>
+              </div>
+              <div className="d-grid gap-2">
+                <button type="submit" className="btn btn-primary">Register</button>
+              </div>
+            </form>
+          </div>
+          <div className="card-footer text-center">
+            <small>Don't have an account? <a href="#">Sign up here</a></small>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="col">
-      <a href="#!">Forgot password?</a>
-    </div>
   </div>
 
-  <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-  <div class="text-center">
-    <p>Not a member? <a href="#!">Register</a></p>
-    <p>or sign up with:</p>
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-facebook-f"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-google"></i>
-    </button> 
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-twitter"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-github"></i>
-    </button>
-  </div>
-</form>
-</div>
   );
 }
 
