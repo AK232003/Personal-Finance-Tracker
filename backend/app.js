@@ -7,7 +7,7 @@ const auth = require("./controllers/auth.js");
 
 require('dotenv').config()
 
-const PORT = 5001
+const PORT = 5000
 
 //middlewares
 app.use(express.json())
