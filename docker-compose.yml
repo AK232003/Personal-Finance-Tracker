@@ -1,14 +1,14 @@
 version: '3.5'
 services:
   frontend:
-    image: frontend
+    image: ak232003/frontend
     ports:
       - "3000:3000"
     depends_on:
       - backend
 
   backend:
-    image: backend
+    image: ak232003/backend
     ports:
       - "5000:5000"
     depends_on:
