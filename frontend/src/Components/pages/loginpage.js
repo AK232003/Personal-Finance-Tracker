@@ -13,7 +13,7 @@ export default function LoginPage(){
     const {setUserInfo} = useContext(UserContext);
     async function login(ev){
         ev.preventDefault();
-        const resp = await fetch('http://localhost:5000/login', {
+        const resp = await fetch('http://mongodb:5000/login', {
             method: "POST",
             body: JSON.stringify({username, password}),
             headers: { "Content-Type": "application/json" },
