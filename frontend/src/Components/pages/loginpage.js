@@ -19,10 +19,13 @@ export default function LoginPage(){
             headers: { "Content-Type": "application/json" },
             // credentials: 'include',
         });
+        // console.log(resp)
         if(resp.ok){
-            resp.json().then(userInfo =>{
+            resp.json().then(userInfo =>{ 
                 setUserInfo(userInfo);
                 setRedirect(true);
+                console.log("USER INFO: ")
+                console.log({userInfo});
             });
         }else{
           alert('Invalid Credentials')

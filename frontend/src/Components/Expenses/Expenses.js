@@ -11,7 +11,7 @@ import {MainLayout} from '../../styles/Layouts'
 import Navigation from '../Navigation/Navigation';
 
 function Expenses() {
-    const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+    const {addIncome, expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
     const [active, setActive] = useState(4)
     const orbMemo = useMemo(() => {
         return <Orb />

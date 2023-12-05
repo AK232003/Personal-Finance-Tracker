@@ -11,9 +11,3 @@ export function UserContextProvider({children}){
        </UserContext.Provider>
     );
 }
-// import { createContext, Dispatch, SetStateAction } from "react";
-// interface IUserContext{
-//     setUsername:Dispatch<SetStateAction<string>>;
-//     username:string;
-// }
-// export const UserContext = createContext<IUserContext>({} as IUserContext);

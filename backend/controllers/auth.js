@@ -52,9 +52,8 @@ module.exports = {
 				username,
 				password: bcrypt.hashSync(password, salt),
 				name,
-				// college,
-				// yearOfStudy: yearOfStudy,
-				// limit: limit,
+				incomeTransactions: [],
+				expenseTransactions: [],
 				});
 				console.log('User created successfully');
 				res.json({ requestData: { username, password } });

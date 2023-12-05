@@ -16,7 +16,6 @@ import TotalHistory from './TotalHistory/totalhistory';
 
 function App() {
   const [active, setActive] = useState(1)
-
   const global = useGlobalContext()
   console.log(global);
 

@@ -14,11 +14,11 @@ function RegisterPage() {
     ev.preventDefault();
     const response = await fetch("http://localhost:5000/register", {
       method: "POST",
-      body: JSON.stringify({username, password, name}),
+      body: JSON.stringify({username, password, name, inchomeTransactions: [], expenseTransactions: []}),
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
-      console.log("Registered") 
+      console.log({response}) 
       console.log("Registration successful! Please login");
       setRedirect(true);
     } else {

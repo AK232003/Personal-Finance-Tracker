@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
 import { Link } from 'react-router-dom'
 import { useGlobalContext } from '../../context/globalContext'
+import { UserContext } from '../../context/UserContext'
 
 function Navigation({active, setActive}) {
     const {totalBalance} = useGlobalContext()
     const balance = totalBalance()
-
+    const { userInfo, setUserInfo } = useContext(UserContext)
+    console.log("USER INFO: ")
+    console.log({userInfo})
     return (
         <NavStyled>
             <div className="user-con">
