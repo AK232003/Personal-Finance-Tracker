@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 import { signout } from '../../utils/Icons'
@@ -6,19 +6,51 @@ import { menuItems } from '../../utils/menuItems'
 import { Link } from 'react-router-dom'
 import { useGlobalContext } from '../../context/globalContext'
 import { UserContext } from '../../context/UserContext'
+import Cookies from 'js-cookie';
 
 function Navigation({active, setActive}) {
     const {totalBalance} = useGlobalContext()
     const balance = totalBalance()
-    const { userInfo, setUserInfo } = useContext(UserContext)
-    console.log("USER INFO: ")
-    console.log({userInfo})
+    const [user, setUser] = useState(null)
+    const [token, setToken] = useState(null)
+
+    useEffect(() => {
+        const readCookie = () => {
+            const myCookieValue = Cookies.get('token');
+            console.log('Cookie Value:', myCookieValue);
+            setToken(myCookieValue)
+        };
+        readCookie();
+    });
+    useEffect(() => {
+        if(token)
+            userinfo(token);
+    }, [token]);
+    
+    async function userinfo(username){
+        const resp = await fetch(`http://localhost:5000/api/v1/get-userinfo/${username}`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+            // credentials: 'include',
+        }); 
+        if(resp.ok){
+            let data = await resp.json()
+            console.log("data", data)
+            // Cookies.set('token', data.username, { expires: 7 });
+            setUser(data)
+            // setRedirect(true);
+        }else{
+          alert('Invalid User')
+        }
+    }
+
+
     return (
         <NavStyled>
             <div className="user-con">
                 <img src={avatar} alt="" />
                 <div className="text">
-                    <h2>Arya</h2>
+                    <h2>{user ? user.name : ""}</h2>
                     <span>${balance}</span>
                 </div>
             </div>

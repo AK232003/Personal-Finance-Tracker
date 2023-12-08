@@ -1,23 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
 import Button from '../Button/Button';
 import { plus } from '../../utils/Icons';
-
+import Cookies from 'js-cookie';
 
 function Form() {
     const {addIncome, getIncomes, error, setError} = useGlobalContext()
+
     const [inputState, setInputState] = useState({
+        username: '',
         title: '',
         amount: '',
         date: '',
-        category: '',
+        category: '',   
         description: '',
     })
-
-    const { title, amount, date, category,description } = inputState;
+    
+    const { username , title, amount, date, category, description } = inputState;
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
@@ -28,6 +30,7 @@ function Form() {
         e.preventDefault()
         addIncome(inputState)
         setInputState({
+            username: '',
             title: '',
             amount: '',
             date: '',
@@ -39,6 +42,15 @@ function Form() {
     return (
         <FormStyled onSubmit={handleSubmit}>
             {error && <p className='error'>{error}</p>}
+            <div className="input-control">
+                <input 
+                    type="text" 
+                    value={username}
+                    name={'username'} 
+                    placeholder="Username"
+                    onChange={handleInput('username')}
+                />
+            </div>
             <div className="input-control">
                 <input 
                     type="text" 

@@ -10,7 +10,7 @@ import {MainLayout} from '../../styles/Layouts'
 import Navigation from '../Navigation/Navigation';
 
 function Income() {
-    const {addIncome,incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
+    const {addIncome, incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
     const [active, setActive] = useState(3)
     const orbMemo = useMemo(() => {
         return <Orb />
@@ -18,6 +18,7 @@ function Income() {
     useEffect(() =>{
         getIncomes()
     }, [])
+    
     return (
         <AppStyled bg={bg} className="App">
         {orbMemo}

@@ -7,6 +7,7 @@ const index = require("../app");
 
 module.exports = {
 	login: async(req, res) => {
+		console.log("login call")
 		const { username, password } = req.body;
 		try {
 			const UserDoc = await User.findOne({ username });
@@ -14,6 +15,7 @@ module.exports = {
 			if (passOk) {
 			jwt.sign({ username, id: UserDoc._id }, secret, {}, (err, token) => {
 				if (err) throw err;
+				console.log("save cookie")
 				res.cookie("token", token).json({
 				id: UserDoc._id,
 				username,

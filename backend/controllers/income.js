@@ -1,9 +1,9 @@
 const IncomeSchema= require("../models/IncomeModel")
-
-
+const UserModel = require("../models/User")
+let user1
 exports.addIncome = async (req, res) => {
-    const {title, amount, category, description, date}  = req.body
-
+    const {username, title, amount, category, description, date}  = req.body
+    // console.log("Username: ", username)
     const income = IncomeSchema({
         title,
         amount,
@@ -20,8 +20,15 @@ exports.addIncome = async (req, res) => {
         if(amount <= 0 || !amount === 'number'){
             return res.status(400).json({message: 'Amount must be a positive number!'})
         }
+
         await income.save()
+        const user = await UserModel.findOne({ username });
+        user1 = user
+        user.incomeTransactions.push(income);
+        await user.save();
+        console.log(user.incomeTransactions)
         res.status(200).json({message: 'Income Added'})
+
     } catch (error) {
         res.status(500).json({message: 'Server Error'})
     }
@@ -31,8 +38,13 @@ exports.addIncome = async (req, res) => {
 
 exports.getIncomes = async (req, res) =>{
     try {
-        const incomes = await IncomeSchema.find().sort({createdAt: -1})
-        res.status(200).json(incomes)
+        console.log("USER1: ", user1)
+        const incomes = user1.incomeTransactions
+        const income_trans = await IncomeSchema.find({
+            _id: {$in: incomes}
+        }).sort({createdAt: -1})
+        // const incomes = await IncomeSchema.find().sort({createdAt: -1})
+        res.status(200).json(income_trans)
     } catch (error) {
         res.status(500).json({message: 'Server Error'})
     }
@@ -47,4 +59,5 @@ exports.deleteIncome = async (req, res) =>{
         .catch((err) =>{
             res.status(500).json({message: 'Server Error'})
         })
+    // const newArray = objectIdArray.filter((objectId) => !objectId.equals(id));
 }

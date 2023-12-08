@@ -15,14 +15,10 @@ exports.profile =  async (req, res) => {
 }
 
 exports.getUserInfo = async(req, res)=>{
-	const { token } = req.cookies;
-	jwt.verify(token, secret, {}, async(err, info)=>{
-		if (err){
-			console.log('Unable to fetch profile', err);
-			throw err;
-		}
-		const userDoc = await User.findOne({username: info.username}, "username name income expense");
-		res.json(userDoc);
-		console.log("User info fetched successfully");
-	})
+	// const { token } = req.cookies;
+	const {username} = req.params;
+	console.log(username)
+	const userDoc = await User.findOne({username}, "username name income expense");
+	res.json(userDoc);
+	console.log("User info fetched successfully");
 }

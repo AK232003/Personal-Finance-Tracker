@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import {UserContext} from '../../context/UserContext';
+import Cookies from 'js-cookie';
 import LoginImage1 from '../images/LoginImage1.svg'
 import logo from '../images/Logo.jpg'
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ export default function LoginPage(){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    
     const {setUserInfo} = useContext(UserContext);
     async function login(ev){
         ev.preventDefault();
@@ -18,21 +20,18 @@ export default function LoginPage(){
             body: JSON.stringify({username, password}),
             headers: { "Content-Type": "application/json" },
             // credentials: 'include',
-        });
-        // console.log(resp)
+        }); 
         if(resp.ok){
-            resp.json().then(userInfo =>{ 
-                setUserInfo(userInfo);
-                setRedirect(true);
-                console.log("USER INFO: ")
-                console.log({userInfo});
-            });
+            let data = await resp.json()
+              console.log("data", data)
+            Cookies.set('token', data.username, { expires: 7 });
+              setRedirect(true);
         }else{
           alert('Invalid Credentials')
         }
     }
     if(redirect){
-        return <Navigate to= {"/dashboard"} replace={true} />
+        return <Navigate to= {`/dashboard`} replace={true} />
     }
     return (
        <div className="container">
