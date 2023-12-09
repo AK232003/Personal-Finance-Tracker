@@ -1,6 +1,6 @@
 const { addExpense, getExpense, deleteExpense } = require('../controllers/expense');
 const { addIncome, getIncomes, deleteIncome } = require('../controllers/income');
-const { profile, getUserInfo } = require('../controllers/user_actions')
+const { profile, getUserInfo, updateInfo } = require('../controllers/user_actions')
 
 const router = require('express').Router();
 
@@ -13,5 +13,6 @@ router.post('/add-income', addIncome)
     .delete('/delete-expense/:id', deleteExpense)
     .get('/get-profile', profile)
     .get('/get-userinfo/:username', getUserInfo)
+    .patch('/update-info/:username', updateInfo)
 
 module.exports = router

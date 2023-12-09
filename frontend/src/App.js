@@ -11,6 +11,7 @@ import Income from './Components/Income/Income'
 import Expenses from './Components/Expenses/Expenses';
 import { useGlobalContext } from './context/globalContext';
 import LoginPage from './Components/pages/loginpage';
+import UpdateInfo from './Components/pages/updateInfo';
 import History from './History/History';
 import TotalHistory from './TotalHistory/totalhistory';
 
@@ -32,6 +33,7 @@ function App() {
             <Route path='/income' element={<Income />} />
             <Route path='/expenses' element={<Expenses />} />
             <Route path='/history' element={<TotalHistory />} />
+            <Route path='/updateinfo' element={<UpdateInfo />} />
           </Routes>
     </Router>
 

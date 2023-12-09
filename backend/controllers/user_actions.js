@@ -22,3 +22,13 @@ exports.getUserInfo = async(req, res)=>{
 	res.json(userDoc);
 	console.log("User info fetched successfully");
 }
+
+exports.updateInfo = async(req, res)=>{
+	const {username} = req.params;
+	const {name} = req.body;
+	console.log(userename, name)
+	const updte = await User.findOneandUpdate({username: username}, {
+		name: name
+	})
+
+}
