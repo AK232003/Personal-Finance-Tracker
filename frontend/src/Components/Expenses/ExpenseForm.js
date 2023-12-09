@@ -10,6 +10,7 @@ import { plus } from '../../utils/Icons';
 function ExpenseForm() {
     const {addExpense, error, setError} = useGlobalContext()
     const [inputState, setInputState] = useState({
+        username: '',
         title: '',
         amount: '',
         date: '',
@@ -17,7 +18,7 @@ function ExpenseForm() {
         description: '',
     })
 
-    const { title, amount, date, category,description } = inputState;
+    const { username, title, amount, date, category,description } = inputState;
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
@@ -28,6 +29,7 @@ function ExpenseForm() {
         e.preventDefault()
         addExpense(inputState)
         setInputState({
+            username: '',
             title: '',
             amount: '',
             date: '',
@@ -39,6 +41,15 @@ function ExpenseForm() {
     return (
         <ExpenseFormStyled onSubmit={handleSubmit}>
             {error && <p className='error'>{error}</p>}
+            <div className="input-control">
+                <input 
+                    type="text" 
+                    value={username}
+                    name={'username'} 
+                    placeholder="Username"
+                    onChange={handleInput('username')}
+                />
+            </div>
             <div className="input-control">
                 <input 
                     type="text" 
