@@ -18,8 +18,8 @@ function RegisterPage() {
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
-      console.log({response}) 
-      console.log("Registration successful! Please login");
+      // console.log({response}) 
+      alert("Registration successful! Please login");
       setRedirect(true);
     } else {
       alert("Username in already in use.");

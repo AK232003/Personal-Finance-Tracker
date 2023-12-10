@@ -12,6 +12,6 @@ router.post('/add-income', addIncome)
     .get('/get-expenses', getExpense)
     .delete('/delete-expense/:id', deleteExpense)
     .get('/get-profile', profile)
-    .get('/get-userinfo/:username', getUserInfo)
-
+    .get('/get-userinfo/:username', getUserInfo)    
+    
 module.exports = router

@@ -3,15 +3,30 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const secret = "adeioosi2392n#n1i1n@8n8";
 const salt = bcrypt.genSaltSync(10);
+const index = require("../app")
+const winston = require("winston")
+// Define a logger that logs messages to a file.
+const logger = winston.createLogger({
+	format: winston.format.combine(
+	  winston.format.timestamp(),
+	  winston.format.json()
+	),
+	transports: [
+	  new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
+	  new winston.transports.File({ filename: 'logs/info.log', level: 'info' }),
+	  new winston.transports.File({ filename: 'logs/warn.log', level: 'warn' }),
+	  new winston.transports.File({ filename: 'logs/combined.log' }),
+	],
+  });
 
 exports.profile =  async (req, res) => {
 		const { token } = req.cookies;
 		jwt.verify(token, secret, {}, (err, info) => {
 			if (err){
-				console.log('Unable to fetch profile', err);
+				logger.error('Unable to fetch profile', err);
 				throw err;
 			}
-			console.log("Profile fetched successfully");
+			logger.info("Profile fetched successfully");
 			res.json(info);
 		});
 }
@@ -22,20 +37,16 @@ exports.getUserInfo = async(req, res)=>{
 	console.log(username)
 	const userDoc = await User.findOne({username}, "username name income expense");
 	res.json(userDoc);
-	console.log("User info fetched successfully");
+	logger.info("User info fetched successfully");
 }
 
 exports.updateInfo = async(req, res)=>{
-	// console.log("ENTERED")
-	// const {username} = req.body;
 	const {username, username1, name, password} = req.body;
-
-	console.log(username, name)
 	const updte = await User.findOneAndUpdate({username: username}, {
 		username: username1,
 		name: name,
 		password: bcrypt.hashSync(password, salt)
 	})
 	res.json(updte);
-	console.log("User Information Updated")
+	logger.info("User Information Updated")
 }

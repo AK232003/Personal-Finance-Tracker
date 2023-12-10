@@ -51,6 +51,8 @@ function Navigation({active, setActive}) {
                 <img src={avatar} alt="" />
                 <div className="text">
                     <h2>{user ? user.name : ""}</h2>
+                    <span>{user ? user.username : ""}</span>
+                    <br></br>
                     <span>${balance}</span>
                 </div>
             </div>
