@@ -31,3 +31,7 @@
 {"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:08:15.480Z"}
 {"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:09:23.260Z"}
 {"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:09:23.278Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T19:19:27.540Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T19:19:27.544Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T19:19:27.559Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T19:19:27.562Z"}

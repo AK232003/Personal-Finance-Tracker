@@ -16,3 +16,7 @@
 {"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.717Z"}
 {"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.991Z"}
 {"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.994Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T19:19:27.540Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T19:19:27.544Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T19:19:27.559Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T19:19:27.562Z"}
