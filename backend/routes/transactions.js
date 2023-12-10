@@ -13,6 +13,5 @@ router.post('/add-income', addIncome)
     .delete('/delete-expense/:id', deleteExpense)
     .get('/get-profile', profile)
     .get('/get-userinfo/:username', getUserInfo)
-    .patch('/update-info/:username', updateInfo)
 
 module.exports = router

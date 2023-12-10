@@ -24,11 +24,14 @@ exports.getUserInfo = async(req, res)=>{
 }
 
 exports.updateInfo = async(req, res)=>{
-	const {username} = req.params;
-	const {name} = req.body;
-	console.log(userename, name)
-	const updte = await User.findOneandUpdate({username: username}, {
-		name: name
-	})
+	// console.log("ENTERED")
+	// const {username} = req.body;
+	const {username, name} = req.body;
 
+	console.log(username, name)
+	const updte = await User.findOneAndUpdate({username: username}, {
+		name: name,
+	})
+	res.json(updte);
+	console.log("User Information Updated")
 }

@@ -19,7 +19,7 @@ app.use(cors())
 app.post("/register", auth.register);
 app.post("/login", auth.login);
 app.post("/logout", auth.logout);
-
+app.post('/update-info', user_actions.updateInfo)
 // get user related information
 app.get("/profile", user_actions.profile);
 app.get("/userinfo", user_actions.getUserInfo)

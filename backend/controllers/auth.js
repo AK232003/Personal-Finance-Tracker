@@ -23,7 +23,7 @@ module.exports = {
 			});
 			console.log('Successful Login');
 			} else {
-				console.log.warn('Invalid credentials');
+				console.log('Invalid credentials');
 				res.status(401).json({message: "invalid credentials"});
 			}
 		} catch (e) {
