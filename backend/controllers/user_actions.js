@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const secret = process.env.SECRET_KEY;
+const bcrypt = require("bcrypt");
+const secret = "adeioosi2392n#n1i1n@8n8";
+const salt = bcrypt.genSaltSync(10);
 
 exports.profile =  async (req, res) => {
 		const { token } = req.cookies;
@@ -26,11 +28,13 @@ exports.getUserInfo = async(req, res)=>{
 exports.updateInfo = async(req, res)=>{
 	// console.log("ENTERED")
 	// const {username} = req.body;
-	const {username, name} = req.body;
+	const {username, username1, name, password} = req.body;
 
 	console.log(username, name)
 	const updte = await User.findOneAndUpdate({username: username}, {
+		username: username1,
 		name: name,
+		password: bcrypt.hashSync(password, salt)
 	})
 	res.json(updte);
 	console.log("User Information Updated")

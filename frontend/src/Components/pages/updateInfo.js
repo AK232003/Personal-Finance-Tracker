@@ -78,7 +78,7 @@ function UpdatePage() {
     ev.preventDefault();
     const response = await fetch("http://localhost:5000/update-info", {
       method: "POST",
-      body: JSON.stringify({username, name}),
+      body: JSON.stringify({username, username1, name, password}),
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
@@ -107,17 +107,17 @@ function UpdatePage() {
                 <label htmlFor="username" className="form-label"> Present Username</label>
                 <input type="text" className="form-control" id="username" placeholder="Enter your present username" value = {username} onChange = {ev => setUsername(ev.target.value)}/>
               </div>
-              {/* <div className="mb-3">
+              <div className="mb-3">
                 <label htmlFor="username" className="form-label"> New Username</label>
                 <input type="text" className="form-control" id="username1" placeholder="Enter your new username" value = {username1} onChange = {ev => setUsername1(ev.target.value)}/>
-              </div> */}
+              </div>
                 <label htmlFor="username" className="form-label">New Name</label>
                 <input type="text" className="form-control" id="name" placeholder="Enter your updated name" value = {name} onChange = {ev => setName(ev.target.value)}/>
               </div>
-              {/* <div className="mb-3">
+              <div className="mb-3">
                 <label htmlFor="password" className="form-label">New Password</label>
                 <input type="password" className="form-control" id="password" placeholder="Enter your new password" value = {password} onChange = {ev => setPassword(ev.target.value)}/>
-              </div> */}
+              </div>
               <div className="d-grid gap-2">
                 <button type="submit" className="btn btn-primary" onClick={update}>Update</button>
               </div>
