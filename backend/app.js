@@ -53,4 +53,4 @@ const server = () => {
 }
 
 server()
-// module.exports = {logger, app, server}
+module.exports = {app}

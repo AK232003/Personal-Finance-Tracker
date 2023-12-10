@@ -10,3 +10,9 @@
 {"level":"error","message":"Username doesn't exist","timestamp":"2023-12-10T10:47:03.686Z"}
 {"level":"error","message":"Username doesn't exist","timestamp":"2023-12-10T10:47:12.069Z"}
 {"level":"error","message":"Username doesn't exist","timestamp":"2023-12-10T10:47:16.372Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:19.702Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.706Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:19.715Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.717Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.991Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.994Z"}

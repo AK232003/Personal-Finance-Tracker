@@ -130,3 +130,25 @@
 {"level":"info","message":"User info fetched successfully","timestamp":"2023-12-10T10:53:59.539Z"}
 {"level":"warn","message":"Invalid credentials","timestamp":"2023-12-10T10:54:14.958Z"}
 {"level":"warn","message":"Create user aborted: Username already in use","timestamp":"2023-12-10T10:54:30.362Z"}
+{"level":"info","message":"User created successfully","timestamp":"2023-12-10T11:50:23.603Z"}
+{"level":"info","message":"User created successfully","timestamp":"2023-12-10T11:50:59.004Z"}
+{"level":"info","message":"Successful Login","timestamp":"2023-12-10T18:54:19.524Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:19.702Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.706Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:19.715Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.717Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-10T18:54:19.841Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-10T18:54:21.325Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.991Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.994Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-10T18:54:22.018Z"}
+{"level":"info","message":"Income Successfully Added","timestamp":"2023-12-10T18:54:38.418Z"}
+{"level":"info","message":"Successfully retrieved list of Incomes","timestamp":"2023-12-10T18:54:38.432Z"}
+{"level":"warn","message":"Create user aborted: Username already in use","timestamp":"2023-12-10T18:55:06.794Z"}
+{"level":"warn","message":"Create user aborted: Username already in use","timestamp":"2023-12-10T18:56:16.525Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:06:19.574Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:06:34.408Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:07:18.162Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:08:15.480Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:09:23.260Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:09:23.278Z"}

@@ -17,3 +17,17 @@
 {"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T10:51:19.060Z"}
 {"level":"warn","message":"Invalid credentials","timestamp":"2023-12-10T10:54:14.958Z"}
 {"level":"warn","message":"Create user aborted: Username already in use","timestamp":"2023-12-10T10:54:30.362Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:19.702Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.706Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:19.715Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T18:54:19.717Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.991Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T18:54:21.994Z"}
+{"level":"warn","message":"Create user aborted: Username already in use","timestamp":"2023-12-10T18:55:06.794Z"}
+{"level":"warn","message":"Create user aborted: Username already in use","timestamp":"2023-12-10T18:56:16.525Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:06:19.574Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:06:34.408Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:07:18.162Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:08:15.480Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:09:23.260Z"}
+{"level":"warn","message":"Amount must be a positive number","timestamp":"2023-12-10T19:09:23.278Z"}
