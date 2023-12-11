@@ -11,6 +11,7 @@ import LoginPage from './Components/pages/loginpage';
 import UpdateInfo from './Components/pages/updateInfo';
 import TotalHistory from './TotalHistory/totalhistory';
 
+// test
 function App() {
   const [active, setActive] = useState(1)
   const global = useGlobalContext()
