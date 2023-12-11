@@ -27,3 +27,5 @@ export const food = <i className="fa-solid fa-bowl-food"></i>
 export const medical = <i className="fa-solid fa-briefcase-medical"></i>
 export const tv = <i className="fa-solid fa-tv"></i>
 export const circle = <i className="fa-solid fa-circle-dot"></i>
+export const upd = <i class="fa-solid fa-rotate"></i>
+export const upd1 = <i className="fas fa-sync-alt"></i>

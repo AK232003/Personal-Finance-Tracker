@@ -158,3 +158,27 @@
 {"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-10T19:19:27.559Z"}
 {"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-10T19:19:27.562Z"}
 {"level":"info","message":"User info fetched successfully","timestamp":"2023-12-10T19:19:27.616Z"}
+{"level":"info","message":"User created successfully","timestamp":"2023-12-11T03:18:17.959Z"}
+{"level":"info","message":"Successful Login","timestamp":"2023-12-11T03:18:26.414Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:18:26.561Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:18:26.565Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:18:26.573Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:18:26.575Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-11T03:18:26.692Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-11T03:18:32.952Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:18:37.445Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:18:37.446Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:18:37.470Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:18:37.472Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-11T03:18:37.557Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:18:56.078Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:18:56.080Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:18:56.086Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:18:56.087Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-11T03:18:56.098Z"}
+{"level":"info","message":"Successful Login","timestamp":"2023-12-11T03:19:56.031Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:19:56.243Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:19:56.246Z"}
+{"level":"error","message":"Server error, Cannot Retreive list of Incomes","timestamp":"2023-12-11T03:19:56.253Z"}
+{"level":"error","message":"Server Error, Cannot retrieve list of Expense","timestamp":"2023-12-11T03:19:56.256Z"}
+{"level":"info","message":"User info fetched successfully","timestamp":"2023-12-11T03:19:56.363Z"}
